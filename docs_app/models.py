@@ -4,7 +4,7 @@ from feed_app.models import Event
 
 # Create your models here.
 class EventImage(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name="Event")
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name="Event", related_name="images")
     file = models.FileField("File", null=True, blank=True)
     uploaded_at = models.DateTimeField("Uploaded At", null=True, blank=True, auto_now=True)
     original_name = models.CharField("Original Name", max_length=255, null=True, blank=True)
