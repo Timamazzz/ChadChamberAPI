@@ -12,6 +12,9 @@ class EventSerializer(serializers.ModelSerializer):
 
 
 class EventListSerializer(serializers.ModelSerializer):
+    event_type = serializers.CharField(source='event_type.name')
+    category = serializers.CharField(source='category.name')
+
     class Meta:
         model = Event
         fields = ('id', 'event_type', 'category', 'start_datetime', 'end_datetime', 'title')
