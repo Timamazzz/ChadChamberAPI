@@ -22,6 +22,8 @@ class EventListSerializer(serializers.ModelSerializer):
 
 class EventRetrieveSerializer(WritableNestedModelSerializer):
     images = EventImageSerializer()
+    event_type = serializers.CharField(source='event_type.name')
+    category = serializers.CharField(source='category.name')
 
     class Meta:
         model = Event
